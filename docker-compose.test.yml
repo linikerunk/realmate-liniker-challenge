@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=test_realmate
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+
+  test:
+    build: .
+    command: python manage.py test
+    volumes:
+      - .:/app
+    environment:
+      - DJANGO_SETTINGS_MODULE=realmate_challenge.settings
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/test_realmate
+      - REDIS_URL=redis://redis:6379/0
+      - TESTING=1
+    depends_on:
+      - db
+      - redis

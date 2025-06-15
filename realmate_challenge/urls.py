@@ -33,11 +33,11 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('', include('chat.urls')),  # URLs do app chat
-    path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # API URLs
+    path('chat/', include('chat.urls')),  # Rota raiz - Django REST Framework
     
-    # Swagger URLs
+    # Admin e Documentação
+    path('admin/', admin.site.urls),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

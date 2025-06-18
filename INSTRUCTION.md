@@ -20,14 +20,13 @@ A aplicação backend precisa de um arquivo de configuração de ambiente (`.env
     ```bash
     cd backend/
     ```
-    *(Nota: substitua `backend/` pelo nome real do diretório, se for diferente).*
 
 2.  Copie o arquivo de exemplo `.env.example` para criar um novo arquivo `.env`. Este é o arquivo que a aplicação irá ler.
     ```bash
     cp .env.example .env
     ```
 
-3.  **(Opcional)** Abra o arquivo `.env` recém-criado em um editor de texto e verifique se os valores padrão são adequados para o seu desenvolvimento local. Para a primeira execução, geralmente não são necessárias alterações.
+3.  **(Atenção)** Os valores do env.example já estão com os valores que precisam ser utilizado nos container 
 
 ## Passo 2: Iniciar os Contêineres com Docker Compose
 
@@ -43,9 +42,6 @@ Com o ambiente configurado, vamos iniciar todos os serviços (backend, frontend,
     docker compose up --build -d
     ```
 
-    -   `--build`: Garante que o Docker reconstrua as imagens caso haja alguma alteração no `Dockerfile` ou no código-fonte.
-    -   `-d` (detached): Executa os contêineres em segundo plano, liberando seu terminal.
-
 ## Passo 3: Verificar o Status dos Serviços
 
 Após alguns instantes, você pode verificar se todos os contêineres estão rodando corretamente.
@@ -58,22 +54,12 @@ Após alguns instantes, você pode verificar se todos os contêineres estão rod
 
 ---
 
-## Relatório de Status do Ambiente
-
-*Use a saída do comando `docker compose ps` para preencher o status abaixo.*
-
--   **Backend (API):** `[Preencha o status aqui: Ex: Rodando (Up)]`
--   **Frontend (UI):** `[Preencha o status aqui: Ex: Rodando (Up)]`
--   **Banco de Dados (PostgreSQL):** `[Preencha o status aqui: Ex: Rodando (Up)]`
--   **Serviços de Fila (Celery & Redis):** `[Preencha o status aqui: Ex: Rodando (Up)]`
-
-### Evidência (Screenshot)
-
-> Cole aqui um screenshot da saída do comando `docker compose ps` para documentar o status dos contêineres.
->
-> [INSIRA SUA IMAGEM AQUI]
+![Diagrama de Funcionamento do Sistema](./excalidraw/function-system.png)
 
 FRONTEND : http://localhost:5173/
+
 BACKEND: http://localhost:8000/
+
 REDIS/CELERY: http://localhost:6379/
+
 DB: http://localhost:5432/

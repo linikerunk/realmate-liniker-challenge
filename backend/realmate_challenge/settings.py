@@ -167,6 +167,7 @@ CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', CELERY_BROKER_UR
 # Celery Beat Schedule
 CELERY_BEAT_SCHEDULE = {
     'sync-popular-movies-every-24-hours': {
+        
         'task': 'movies.tasks.sync_movies_from_tmdb',
         'schedule': 86400.0,  # Executa a cada 24 horas (em segundos).
     },

@@ -1,9 +1,0 @@
-django>=5.1.6,<6.0.0
-djangorestframework>=3.14.0
-drf-yasg>=1.21.7
-celery>=5.3.6,<6.0.0
-redis>=5.0.4,<6.0.0
-psycopg2-binary>=2.9.9,<3.0.0
-gunicorn>=21.2.0
-whitenoise>=6.6.0
-django-environ>=0.11.2
